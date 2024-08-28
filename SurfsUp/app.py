@@ -46,9 +46,9 @@ def welcome():
         f"/api/v1.0/station<br/><br/>"
         f"Temperature route, fetching the dates and temperature observations of the most-active station for the previous year:<br/>"
         f"/api/v1.0/tobs<br/><br/>"
-        f"Input the start date in /api/v1.0/start in the format YYYY-MM-DD (e.g. /api/v1.0/2017-08-01), fetching the lowest temperature, average temperature and average temperature of all stations for all the dates greater than or equal to the specified start date:<br/>"
+        f"Input the start date in /api/v1.0/start in the format YYYY-MM-DD (e.g. /api/v1.0/2017-08-01), fetching the lowest temperature, average temperature and highest temperature of all stations for all the dates greater than or equal to the specified start date:<br/>"
         f"/api/v1.0/<start><br/><br/>"
-        f"Input the start date and end date in /api/v1.0/start/end in the format YYYY-MM-DD (e.g. /api/v1.0/2017-08-01/2017-08-23), fetching the lowest temperature, average temperature and average temperature of all stations for the dates from the start date to the end date, inclusive:<br/>"
+        f"Input the start date and end date in /api/v1.0/start/end in the format YYYY-MM-DD (e.g. /api/v1.0/2017-08-01/2017-08-23), fetching the lowest temperature, average temperature and highest temperature of all stations for the dates from the start date to the end date, inclusive:<br/>"
         f"/api/v1.0/<start>/<end>"    
     )
 
@@ -109,7 +109,7 @@ def temperature():
     return jsonify(date_temperature)
 
 # Create the specified start date route, 
-# fetching the lowest temperature, average temperature and average temperature of
+# fetching the lowest temperature, average temperature and highest temperature of
 # all stations for all the dates greater than or equal to the specified start date
 @app.route("/api/v1.0/<start>")
 
@@ -141,7 +141,7 @@ def temperature_by_start_date(start):
     return jsonify(result_by_start_date_dict)
 
 # Create the specified start date and end date route,
-# fetching the lowest temperature, average temperature and average temperature of
+# fetching the lowest temperature, average temperature and highest temperature of
 # all stations for the dates from the start date to the end date, inclusive
 @app.route("/api/v1.0/<start>/<end>")
 
